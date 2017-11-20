@@ -9,3 +9,7 @@
 
 
 更多内容请参见[我的博客](http://imtianx.cn/)
+
+[我的面试经历](/android_development_skills.md)
+
+[我的开发笔记](/android_interview_questions.md)
