@@ -1,0 +1,91 @@
+ffmpeg -i concat:"/storage/emulated/0/bzlx.mp3|/storage/emulated/0/bzj.mp3"  -acodec copy   /storage/emulated/0/concat_result.mp3
+
+FFmpeg命令：
+ffmpeg -i bzj.mp3 -i bzlx.mp3  -filter_complex amix=inputs=2:duration=first:dropout_transition=2 -f mp3 result_music.mp3
+
+
+./configure --enable-memalign-hack --help
+
+./configure --enable-shared --disable-static --enable-memalign-hack --disable -yasm
+
+ffmpeg -i bzj.mp3 -map 0:v -map 0:v bzj2.mp3
+
+./configure --enable-shared --disable-static --enable-memalign-hack --disable -yasm
+
+
+./configure --enable-memalign-hack --help
+
+./configure --enable-shared --disable-static --enable-memalign-hack --disable -yasm
+
+
+
+ffmpeg -f concat -i list.txt -c copy result2.mp3 (可用)
+
+ffmpeg -i "concat:bzlx.mp3|bzj.mp3" -acodec copy third.mp3  (可用)
+
+
+ffmpeg -i bzlx.mp3 -i bzj.mp3 -vcodec copy -acodec copy 123.mp3 (可以生成，音乐无法播放，不完整)
+
+
+ffmpeg -i concat:"bzlx.mp3|bzj.mp3" -acodec copy third2.mp3 (可以生成，无法播放)
+
+
+ffmpeg -i bzlx.mp3 -i bzj.mp3 -vcodec copy -acodec copy output.mp3 (无法合并)
+
+
+
+ffmpeg -i  bzlx.mp3 -c copy  bzlx2.mp3 (拷贝视屏)
+
+ffmpeg -f concat -i D:\\ffmpeg-3.3.3-tx\\testfile\\list.txt -c copy D:\\ffmpeg-3.3.3-tx\\testfile\\concat_result.mp3
+
+
+ffmpeg -i "concat:D://ffmpeg-3.3.3-tx//testfile//bzlx.mp3|D://ffmpeg-3.3.3-tx//testfile//bzj.mp3" -acodec copy D://ffmpeg-3.3.3-tx//testfile//third.mp3 
+
+
+
+视屏处理命令：
+
+ffmpeg -i test.mp4 -acodec copy -vcodec copy -f flv test.flv
+
+
+
+ffmpeg -f concat -i /storage/emulated/0/list.txt -c copy /storage/emulated/0/result.mp3 
+
+ffmpeg -i "concat:/storage/emulated/0/bzlx.mp3|/storage/emulated/0/bzj.mp3" -acodec copy /storage/emulated/0/result2.mp3 
+
+
+
+
+ffmpeg -f concat -i list.txt -f mp3 -c copy result.mp3 
+
+
+
+ ffmpeg -i "concat:bzlx.mp3|bzj.mp3" -acodec copy third.mp3
+ 
+ 
+ 
+//原命令1: ffmpeg -f concat -i list.txt -c copy concat_result.mp3
+String path1 = path + "/list.txt";
+String path2 = resultMusicPath;
+String cmd = "ffmpeg -f concat -i " + path1 + " -c copy " + path2;
+File file = new File(file3);
+if (file.exists()) {
+	file.delete();
+}
+Log.i("imtianx", "onClick: ----------   " + cmd);
+toExec(cmd);
+
+
+
+ffmpeg -i 20170911173353921.amr -f mp3 20170911173353921.mp3
+
+ffmpeg -i result.mp3 -f amr output.amr
+
+ffmpeg -i 20170911173353921.amr -codec:a libmp3lame -qscale:a 2 output.mp3
+
+
+ffmpeg -i 20170911173353921.amr -acodec copy -acodec copy -f mp3 test.mp3
+
+ffmpeg -i 20170911173353921.amr -map 0 -codec copy -codec:3  20170911173353921.mp3
+
+
