@@ -36,3 +36,33 @@
 |`fa`|到下一个为a的位置|
 |`t,`|到 , 前的一个字符|
 |`J`|变为一行|
+
+
+
+## 二、cVim
+
+| 快捷键|功能说明  |
+|:---:|:---:|
+| `R` |刷新当前网页 |
+|`x`|关闭当前网页|
+|`X`|打开最后关闭的网页|
+|`yy`|拷贝当前页面url|
+|`P`|新标签打开剪切板url,若不是则用Google搜索|
+|` k / w`|上|
+|` k / w`|上|
+|`:`|打开命令栏|
+|`/`|打开搜索栏|
+|`a`|`tabnew google`的别名， Google搜索，可换成 `baidu` |
+|`I`|历史记录|
+|`zr`|重启chrome|
+|`gd`|下载记录|
+|`ge`|扩展插件|
+|`t`|tabnew|
+|`B`|搜索其他选项卡|
+|`n`|洗衣歌搜索结果|
+|`gU`|转到基本url|
+|`v`|插入模式|
+
+
+更多使用指南请点击[此处](chrome-extension://ihlenndgcmojhcghmfjfneahoeklbjjh/pages/mappings.html)查看。
+
