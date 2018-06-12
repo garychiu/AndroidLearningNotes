@@ -63,6 +63,3 @@
 |`gU`|转到基本url|
 |`v`|插入模式|
 
-
-更多使用指南请点击[此处](chrome-extension://ihlenndgcmojhcghmfjfneahoeklbjjh/pages/mappings.html)查看。
-
