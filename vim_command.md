@@ -1,0 +1,2 @@
+
+# some commands of vim
