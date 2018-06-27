@@ -281,7 +281,24 @@ cat /proc/cpuinfo
 
 ```
 
-## 三、other
+
+## 三、git
+
+### 1、git 回退 
+
+撤回git commit push 操作：
+
+```
+git rest --hard <版本号>
+git push origin branch_name -- force
+
+```
+> `--hard` 不保留提交记录，使用 `force` 强制提交，不能pull
+
+
+
+
+## 四、other
 
 ### 1.Geohash 算法(可用在基于LBS距离排序)
 参考1：[ 如何实现按距离排序、范围查找](http://blog.csdn.net/ghsau/article/details/50591932)
