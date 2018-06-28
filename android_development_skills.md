@@ -230,9 +230,9 @@ tools:text="imtianx"
 ### 1.gradle 查看依赖
 ```
 //查看model名为app的依赖：
-gradle :app:dependencies --configuration compile	
+gradle :app:dependencies --configuration implementation	
 //查看指定库retrofit2的依赖：
-gradle :app:dependencyInsight --dependency retrofit2 --configuration compile
+gradle :app:dependencyInsight --dependency retrofit2 --configuration implementation
 ```
 
 ### 2.查看android 权限
