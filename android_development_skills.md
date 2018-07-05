@@ -225,6 +225,29 @@ String regex = "^((13[0-9])|(14[5-9])|(15([0-3]|[5-9]))|(166)|(17([0-3]|[5-8]))|
 tools:text="imtianx"
 ```
 
+### 17.定义虚线 shape
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="line">
+    
+    <stroke
+        android:width="0.7dp"
+        android:color="@color/line_divider"
+        android:dashGap="3dp"
+        android:dashWidth="6dp"/>
+
+</shape>
+```
+**在使用的 activity 中关闭硬件加速**
+
+```
+android:hardwareAccelerated="false"
+```
+
+
+
 ## 二、gradle & adb 
 
 ### 1.gradle 查看依赖
