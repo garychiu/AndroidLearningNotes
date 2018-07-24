@@ -1,0 +1,40 @@
+language: android
+jdk: oraclejdk8
+sudo: false
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+    
+    - build-tools-$ANDROID_BUILD_TOOLS
+    - android-$ANDROID_API
+    - android-$EMULATOR_API
+    
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - extra-android-support
+    - add-on
+    - extra
+  licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
+before_install:
+  - yes | sdkmanager "platforms;android-27"
+  - chmod +x gradlew
+
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
+script:
+  - ./gradlew assembleRelease
