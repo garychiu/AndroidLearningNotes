@@ -125,6 +125,80 @@ intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 ```
 
+### 跳转通讯录
+
+```
+// 1.获取一个名字下多个 电话
+startActivityForResult(
+	Intent(
+	    Intent.ACTION_PICK,
+	    ContactsContract.Contacts.CONTENT_URI
+	), 0
+    )
+
+// onActivityResult
+ data?.let {
+                it.data?.let { uri ->
+                    getPhoneContracts(uri).apply {
+                    }
+                }
+            }
+	    
+private fun getPhoneContracts(uri: Uri): Pair<String, String> {
+        var name = ""
+        var phone = ""
+        val cr = BaseApplication.getInstance().contentResolver
+        cr.query(uri, null, null, null, null)?.let {
+            it.moveToFirst()
+            val nameFieldColumnIndex = it.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)
+            name = it.getString(nameFieldColumnIndex)
+            val contractId = it.getString(it.getColumnIndex(ContactsContract.Contacts._ID))
+            cr.query(
+                ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=" + contractId,
+                null, null
+            )?.let { phoneCursor ->
+                phoneCursor.moveToFirst()
+                while (phoneCursor.moveToNext()) {
+
+                    // 此处遍历获取
+                    phone = phoneCursor.getString(
+                        phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+                    )
+                }
+                phoneCursor.close()
+            }
+            it.close()
+        }
+        return Pair(name, phone)
+    }
+	    
+	
+	
+// 2.多电话分开显示
+startActivityForResult(
+	Intent(
+	    Intent.ACTION_PICK,
+	    ContactsContract.CommonDataKinds.Phone.CONTENT_URI
+	), 0
+    )
+   private fun getPhoneContracts(uri: Uri): Pair<String, String> {
+        var name = ""
+        var phone = ""
+        val cr = BaseApplication.getInstance().contentResolver
+        cr.query(uri, null, null, null, null)?.let {
+            it.moveToFirst()
+            val nameFieldColumnIndex = it.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)
+            name = it.getString(nameFieldColumnIndex)
+            phone = it.getString(it.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+            it.close()
+        }
+        return Pair(name, phone)
+    } 
+
+```
+
+
 ### 12. 获取手机应用的名称及icon
 获取手机中已经安装的应用:
 ```
